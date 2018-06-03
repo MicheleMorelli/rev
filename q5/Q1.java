@@ -30,31 +30,29 @@ public class Q1 {
         }
         public void run() {
 
-            Map<String, ArrayList<Course>> courses = new HashMap<>();
+            Map<String, Map<String,Integer>> courses = new HashMap<>();
 
-            courses.put("cs", new ArrayList<Course>());
-            courses.put("eng", new ArrayList<Course>());
-            courses.put("mng", new ArrayList<Course>());
-            courses.get("cs").add(new Course("Computer Science", 799));
-            courses.get("cs").add(new Course("Computing", 600));
-            courses.get("cs").add(new Course("Information Systems", 300));
-            courses.get("eng").add(new Course("Mechanical", 100));
-            courses.get("eng").add(new Course("Civil", 150));
-            courses.get("mng").add(new Course("Management", 800));
+            courses.put("cs", new HashMap<String,Integer>());
+            courses.put("eng", new HashMap<String,Integer>());
+            courses.put("mng", new HashMap<String,Integer>());
+            courses.get("cs").put("Computer Science", 799);
+            courses.get("cs").put("Computing", 600);
+            courses.get("cs").put("Information Systems", 300);
+            courses.get("eng").put("Mechanical", 100);
+            courses.get("eng").put("Civil", 150);
+            courses.get("mng").put("Management", 800);
 
             System.out.println(courses);
             System.out.println(courses.keySet().size() + " departments.");
             System.out.println(courses.get("cs").size() + " courses offered by the comp department");
-            for (Course i : courses.get("eng")) {
-                if (i.getName().equals("Civil")) {
-                    System.out.println(i.getId() + " students in the Civ eng etc. ");
+            for (String i : courses.get("eng").keySet()) {
+                if (i.equals("Civil")) {
+                    System.out.println(courses.get("eng").get(i) + " students in the Civ eng etc. ");
                 }
             }
 
-            courses.get("cs").add(new Course("Data Management", 100));
+            courses.get("cs").put("Data Management", 100);
             System.out.println(courses.get("cs"));
-
-
         }
 
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Q4 {
 
     public static void main(String[] args) {
-        Map<String, Integer> d = new HashMap<String, Integer>();
+        Map<String, Integer> d = new HashMap<>();
         d.put("Alyssa", 22);
         d.put("Char", 25);
         d.put("Dan", 25);
